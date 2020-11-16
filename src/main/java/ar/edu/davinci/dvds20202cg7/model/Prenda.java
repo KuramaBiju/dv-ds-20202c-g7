@@ -1,5 +1,6 @@
 package ar.edu.davinci.dvds20202cg7.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
@@ -32,8 +33,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Prenda {
-    
+public class Prenda implements Serializable { /**
+	 * serialize un bit atras de otro para trabajar con jpa    
+	 */
+	
+	private static final long serialVersionUID = 7310551203032599397L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
