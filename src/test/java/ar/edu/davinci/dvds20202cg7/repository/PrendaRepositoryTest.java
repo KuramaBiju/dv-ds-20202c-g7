@@ -14,8 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import ar.edu.davinci.dvds20202cg0.model.Prenda;
-import ar.edu.davinci.dvds20202cg0.model.TipoPrenda;
+import ar.edu.davinci.dvds20202cg7.model.Prenda;
+import ar.edu.davinci.dvds20202cg7.model.TipoPrenda;
+import ar.edu.davinci.dvds20202cg7.repository.PrendaRepository;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
