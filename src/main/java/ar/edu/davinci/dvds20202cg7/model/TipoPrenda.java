@@ -1,5 +1,9 @@
 package ar.edu.davinci.dvds20202cg7.model;
 
+
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Tipo de Prendas
  * 
@@ -9,7 +13,7 @@ package ar.edu.davinci.dvds20202cg7.model;
 public enum TipoPrenda {
 
     SACO("Saco"), 
-    PANTALON("Pantalón"), 
+    PANTALON("PantalÃ³n"), 
     CAMISA("Camisa"), 
     CAMPERA("Campera"), 
     TAPADO("Tapado"), 
@@ -24,4 +28,15 @@ public enum TipoPrenda {
     public String getDescripcion() {
         return descripcion;
     }
+    
+    public static List<TipoPrenda> getTipoPrendas() {
+        List<TipoPrenda> tipoPrendas = new LinkedList<TipoPrenda>();
+        tipoPrendas.add(TipoPrenda.CAMISA);
+        tipoPrendas.add(TipoPrenda.CAMPERA);
+        tipoPrendas.add(TipoPrenda.CHAQUETA);
+        tipoPrendas.add(TipoPrenda.PANTALON);
+        tipoPrendas.add(TipoPrenda.SACO);
+        tipoPrendas.add(TipoPrenda.TAPADO);
+        return tipoPrendas;
+    }    
 }

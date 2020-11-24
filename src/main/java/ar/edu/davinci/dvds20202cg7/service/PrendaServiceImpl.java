@@ -1,5 +1,7 @@
 package ar.edu.davinci.dvds20202cg7.service;
 
+
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import ar.edu.davinci.dvds20202cg7.model.Prenda;
+import ar.edu.davinci.dvds20202cg7.model.TipoPrenda;
 import ar.edu.davinci.dvds20202cg7.repository.PrendaRepository;
 
 @Service
@@ -37,27 +40,35 @@ public class PrendaServiceImpl implements PrendaService {
     }
 
     @Override
-    public Prenda findById(Long id) {
-        Optional<Prenda> prendaOptional = prendaRepository.findById(id);
-        if (prendaOptional.isPresent()) {
-            return prendaOptional.get();
-        }
-        return null;
+    public Optional<Prenda> findById(Long id) {
+        return prendaRepository.findById(id);
     }
+
 
     @Override
     public Prenda save(Prenda prenda) {
-        // TODO Auto-generated method stub
         return prendaRepository.save(prenda);
     }
 
     @Override
     public void delete(Prenda prenda) {
         prendaRepository.delete(prenda);
-}
+    }
+
+    @Override
+    public void delete(Long id) {
+        prendaRepository.deleteById(id);
+    }
+    
     @Override
     public long count() {
         return prendaRepository.count();
     }
+
+    @Override
+    public List<TipoPrenda> getTipoPrendas() {
+        return TipoPrenda.getTipoPrendas();
+    }
+
 
 }
