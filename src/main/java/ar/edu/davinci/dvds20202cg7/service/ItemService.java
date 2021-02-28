@@ -10,13 +10,11 @@ import ar.edu.davinci.dvds20202cg7.model.Item;
 
 public interface ItemService {
     
-	public List<Item> listAll();
+    public List<Item> listAll();
     public Page<Item> list(Pageable pageable);
     public Optional<Item> findById(Long id);
     public Item save(Item item);
     public void delete(Item item);
     public void delete(Long id);
     public long count();
-
 }
-

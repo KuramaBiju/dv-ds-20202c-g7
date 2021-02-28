@@ -1,6 +1,5 @@
 package ar.edu.davinci.dvds20202cg7.service;
 
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -43,7 +42,6 @@ public class PrendaServiceImpl implements PrendaService {
     public Optional<Prenda> findById(Long id) {
         return prendaRepository.findById(id);
     }
-
 
     @Override
     public Prenda save(Prenda prenda) {

@@ -10,3 +10,4 @@ import ar.edu.davinci.dvds20202cg7.model.Venta;
 public interface VentaRepository extends JpaRepository<Venta, Long> {
 
 }
+

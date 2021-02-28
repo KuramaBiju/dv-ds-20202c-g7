@@ -1,6 +1,5 @@
 package ar.edu.davinci.dvds20202cg7;
 
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -228,3 +227,4 @@ public class OrikaConfiguration {
         return mapperFactory.getMapperFacade();
     }
 }
+

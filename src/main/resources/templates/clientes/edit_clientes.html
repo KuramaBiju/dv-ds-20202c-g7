@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<title>Editar Cliente</title>
+</head>
+<body>    
+  <div class="container">
+  <h2>Editar Cliente</h2>        
+  <table class="table table-condensed">
+            <tbody>
+                <tr>
+                    <th><a href="/tienda">Volver al menú pricipal</a></th>
+                    <th>&nbsp;</th>
+                    <th><a href="/tienda/clientes/list">Volver</a></th>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <br />
+        <form action="#" th:action="@{/tienda/clientes/save}"
+            th:object="${cliente}" method="post">
+			<div class="container">	
+            <table class="table table-condensed">
+                <tr>
+                    <td>Cliente ID:</td>
+                    <div class="input-group">
+					  <div class="input-group-prepend">
+					  </div>
+					  <td><input type="text" class="form-control" th:field="*{id}" readonly="readonly" />
+					 </div>                    
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nombre:</td>
+                    <div class="input-group">
+					  <div class="input-group-prepend">
+					  </div>
+                    <td><input type="text" class="form-control" th:field="*{nombre}" /></td>
+                     </div> 
+                     </td>
+                </tr>
+                <tr>
+                	<td>Apellido:</td>
+                    <div class="input-group">
+					  <div class="input-group-prepend">
+					  </div>
+                    <td><input type="text" class="form-control" th:field="*{apellido}" /></td>
+                     </div> 
+                     </td>                    
+                </tr>
+                <tr>
+                    <td colspan="4"><button type="submit" class="btn btn-primary btn-lg">Grabar</button></td>
+                </tr>
+            </table>
+            </div>
+        </form>
+    
+</body>
+</html>

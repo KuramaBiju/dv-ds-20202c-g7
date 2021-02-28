@@ -36,12 +36,10 @@ public class ItemServiceImpl implements ItemService {
         return itemRepository.findAll(pageable);
     }
 
-
     @Override
     public Optional<Item> findById(Long id) {
         return itemRepository.findById(id);
     }
-
 
     @Override
     public Item save(Item item) {

@@ -1,6 +1,5 @@
 package ar.edu.davinci.dvds20202cg7.controller.rest.response;
 
-
 import java.math.BigDecimal;
 
 import lombok.AllArgsConstructor;

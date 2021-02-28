@@ -1,16 +1,19 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8" />
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title>Crea un nuevo Prenda</title>
 </head>
-<body>
-    <div align="center">
+<body>    
+ <div class="container">
         <h1>Crear una nueva Prenda</h1>
         <br />
-        <table>
+        <table class="table table-condensed">
             <tbody>
                 <tr>
                     <th><a href="/tienda">Volver al menú pricipal</a></th>
@@ -20,18 +23,23 @@
             </tbody>
         </table>
         <br />
+         </div>
         <form action="#" th:action="@{/tienda/prendas/save}"
             th:object="${prenda}" method="post">
-
-            <table border="0" cellpadding="10">
+			<div class="container">	
+            <table class="table table-condensed">
                 <tr>
                     <td>Descripción:</td>
-                    <td><input type="text" th:field="*{descripcion}" /></td>
+                    <div class="input-group">
+					  <div class="input-group-prepend">
+					  </div>
+                    <td><input type="text" class="form-control" th:field="*{descripcion}" /></td>
+                     </div> 
                 </tr>
                 <tr>
                     <td>Tipo:</td>
                     <td th:object="${tipoPrendas}">
-                        <select id="tipo" name="tipo">
+                       <select class="form-select" id="tipo" name="tipo" aria-label="Default select example">
                             <option value="">Elija un tipo</option>
                             <option th:each="tipoPrenda : ${tipoPrendas}"
                                     th:value="${tipoPrenda}"
@@ -42,13 +50,20 @@
                 </tr>
                 <tr>
                     <td>Precio Base:</td>
-                    <td><input type="text" th:field="*{precioBase}" /></td>
+                    <div class="input-group">
+					  <div class="input-group-prepend">
+					  </div>
+                    <td><input type="text" class="form-control" th:field="*{precioBase}" /></td>
+                     </div> 
                 </tr>
                 <tr>
-                    <td colspan="2"><button type="submit">Grabar</button></td>
+                   <td colspan="4"><button type="submit" class="btn btn-primary btn-lg">Grabar</button></td>
                 </tr>
             </table>
         </form>
     </div>
 </body>
 </html>
+
+
+            

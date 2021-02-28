@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 
-
 @Entity
 @PrimaryKeyJoinColumn(name = "vta_id")
 @DiscriminatorValue("EFECTIVO")

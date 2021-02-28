@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -20,12 +19,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * Prenda
- * 
- * @author Grupo7
- *
- */
+
 
 @Entity
 @Table(name="prendas")
@@ -34,12 +28,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Prenda implements Serializable { /**
-	 * serialize un bit atras de otro para trabajar con jpa    
-	 */
-	
-	private static final long serialVersionUID = 7310551203032599397L;
+public class Prenda implements Serializable{
+    
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -302068569401023487L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
@@ -56,11 +52,9 @@ public class Prenda implements Serializable { /**
     
     @Column(name = "prd_descripcion")
     private String descripcion;
-
-
+    
+    
     public BigDecimal getPrecioFinal(){
           return precioBase; //estado.precioFinal(precioPropio);
         }
-
-
 }

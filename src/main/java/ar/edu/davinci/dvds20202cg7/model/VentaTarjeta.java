@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 
+
 @Entity
 @PrimaryKeyJoinColumn(name = "vta_id")
 @DiscriminatorValue("TARJETA")
@@ -26,11 +27,11 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 public class VentaTarjeta extends Venta implements Serializable {
-    
+
     /**
      * 
      */
-    private static final long serialVersionUID = -4940343384573345479L;
+    private static final long serialVersionUID = 7549753306871297143L;
 
     @Column(name = "vtt_cantidad_cuotas")
     private Integer cantidadCuotas;
@@ -52,3 +53,5 @@ public class VentaTarjeta extends Venta implements Serializable {
     }
 
 }
+
+

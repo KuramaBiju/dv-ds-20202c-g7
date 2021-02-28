@@ -1,8 +1,8 @@
 package ar.edu.davinci.dvds20202cg7.controller.view;
 
-import org.slf4j.Logger;
 import java.util.Optional;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -31,12 +31,7 @@ public class PrendaController extends TiendaApp {
     @Autowired
     private PrendaService prendaService;
     
-    
-    @GetMapping
-    public String viewHomePage(Model model) {
-        LOGGER.info("GET - viewHomePage - /index");
-        return "index";
-    }
+   
     
     @GetMapping(path = "prendas/list")
     public String showPrendaPage(Model model) {
@@ -87,7 +82,6 @@ public class PrendaController extends TiendaApp {
         mav.addObject("tipoPrendas", prendaService.getTipoPrendas());
         return mav;
     }
-
 
     @RequestMapping(value = "/prendas/delete/{id}", method = RequestMethod.GET)
     public String deletePrenda(@PathVariable(name = "id") Long prendaId) {

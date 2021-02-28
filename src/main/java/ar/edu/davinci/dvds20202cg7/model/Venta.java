@@ -2,6 +2,7 @@ package ar.edu.davinci.dvds20202cg7.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -34,12 +35,6 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 
-/**
- * Venta del día
- * 
- * @author frmontero
- *
- */
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -50,17 +45,21 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public abstract class Venta implements Serializable{
+public abstract class Venta implements Serializable {
     
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -2545181862788343597L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     @Column(name = "vta_id")
     private Long id;
-    private static final long serialVersionUID = -2545181862788343597L;
     
-    @ManyToOne(targetEntity = Cliente.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name="vta_cli_id", referencedColumnName="cli_id")
+    @ManyToOne(targetEntity = Cliente.class, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name="vta_cli_id", referencedColumnName="cli_id", nullable = false)
     private Cliente cliente;
     
     @Column(name = "vta_fecha")
@@ -71,21 +70,27 @@ public abstract class Venta implements Serializable{
     @JsonManagedReference
     private List<Item> items;
     
+    public abstract Double conRecargo(Double importeBase);
     
-public abstract Double conRecargo(Double importeBase);
-    
+    public String getRazonSocial() {
+        return cliente.getRazonSocial();
+    }
     
     public BigDecimal importeBruto() {
         Double suma = items.stream()
                 .collect(Collectors.summingDouble(item -> item.importe().doubleValue()));
-        return new BigDecimal(suma);
+        return new BigDecimal(suma).setScale(2, RoundingMode.UP);
     }
 
     // Template Method
     public BigDecimal importeFinal() {
         Double suma = items.stream()
         .collect(Collectors.summingDouble(item -> conRecargo(item.importe().doubleValue())));
-        return new BigDecimal(suma);
+        return new BigDecimal(suma).setScale(2, RoundingMode.UP);
+    }
+    
+    public String getImporteFinalStr() {
+        return importeFinal().toString();
     }
     
     public boolean esDeFecha(Date fecha) {
@@ -100,4 +105,3 @@ public abstract Double conRecargo(Double importeBase);
         this.items.add(item);
     }
 }    
-

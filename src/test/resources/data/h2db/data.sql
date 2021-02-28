@@ -1,6 +1,6 @@
 INSERT INTO `prendas`
 (`prd_id`,
-`prd_descripcion`,  
+`prd_descripcion`,  --Se reemplaza por prd_descripcion
 `prd_precio_base`,
 `prd_tipo_prenda`)
 VALUES

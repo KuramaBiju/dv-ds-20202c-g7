@@ -13,19 +13,17 @@ import ar.edu.davinci.dvds20202cg7.model.VentaTarjeta;
 
 public interface VentaService {
     
-	    
-	    public List<Venta> listAll();
-	    public Page<Venta> list(Pageable pageable);
-	    public Optional<Venta> findById(Long id);
-	    public VentaEfectivo save(VentaEfectivo venta) throws Exception;
-	    public VentaEfectivo save(VentaEfectivo ventaEfectivo, Item item) throws Exception;
-	    public VentaTarjeta save(VentaTarjeta venta) throws Exception;
-	    public VentaTarjeta save(VentaTarjeta ventaTarjeta, Item item) throws Exception;
-	    public void delete(Venta venta);
-	    public void delete(Long id);
-	    public long count();
-	    public Venta addItem(Long id, Item item) throws Exception;
-	    public Venta updateItem(Long ventaId, Long itemId, Item item) throws Exception;
-	    public Venta deleteItem(Long ventaId, Long itemId) throws Exception;
-	
+    public List<Venta> listAll();
+    public Page<Venta> list(Pageable pageable);
+    public Optional<Venta> findById(Long id);
+    public VentaEfectivo save(VentaEfectivo venta) throws Exception;
+    public VentaEfectivo save(VentaEfectivo ventaEfectivo, Item item) throws Exception;
+    public VentaTarjeta save(VentaTarjeta venta) throws Exception;
+    public VentaTarjeta save(VentaTarjeta ventaTarjeta, Item item) throws Exception;
+    public void delete(Venta venta);
+    public void delete(Long id);
+    public long count();
+    public Venta addItem(Long id, Item item) throws Exception;
+    public Venta updateItem(Long ventaId, Long itemId, Item item) throws Exception;
+    public Venta deleteItem(Long ventaId, Long itemId) throws Exception;
 }

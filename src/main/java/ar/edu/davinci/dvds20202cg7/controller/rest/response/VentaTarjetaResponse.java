@@ -1,6 +1,5 @@
 package ar.edu.davinci.dvds20202cg7.controller.rest.response;
 
-
 import java.math.BigDecimal;
 
 
@@ -17,3 +16,4 @@ public class VentaTarjetaResponse extends VentaResponse {
     
     private BigDecimal coeficienteTarjeta;
 }
+

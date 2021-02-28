@@ -7,44 +7,41 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<title>Administrador de Prendas</title>
+<title>Administrador de Clientes</title>
 </head>
 <body>
-   
 <div class="container">   
-        <h1>Listado de Prendas</h1>
-        <br />
+        <h1>Listado de Clientes</h1>
+        <br />   
   <table class="table table-condensed">
             <tbody>
                 <tr>
                     <th><a href="/tienda">Volver al menú pricipal</a></th>
                     <th>&nbsp;</th>
-                    <th><a href="/tienda/prendas/new">Crear una nueva Prenda</a></th>
+                    <th><a href="/tienda/clientes/new">Crear un nuevo Cliente</a></th>
                 </tr>
             </tbody>
         </table>
         <br />
-         </div>
+        </div>
         <div class="container">      
   <table class="table table-condensed">
             <thead>
                 <tr>
-                    <th>Prenda ID</th>
-                    <th>Descripción</th>
-                    <th>Tipo</th>
-                    <th>Precio Base</th>
+                    <th>Cliente ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="prenda : ${listPrendas}">
-                    <td th:text="${prenda.id}">Prenda ID</td>
-                    <td th:text="${prenda.descripcion}">Descripcion</td>
-                    <td th:text="${prenda.tipo.descripcion}">Tipo</td>
-                    <td th:text="${prenda.precioBase}">Precio Base</td>
-                    <td><a th:href="@{'/tienda/prendas/edit/' + ${prenda.id}}">Editar</a>
+                <tr th:each="cliente : ${listClientes}">
+                    <td th:text="${cliente.id}">Cliente ID</td>
+                    <td th:text="${cliente.nombre}">Nombre</td>
+                    <td th:text="${cliente.apellido}">Apellido</td>
+                    <td><a th:href="@{'/tienda/clientes/edit/' + ${cliente.id}}">Editar</a>
                         &nbsp;&nbsp;&nbsp; <a
-                        th:href="@{'/tienda/prendas/delete/' + ${prenda.id}}">Borrar</a></td>
+                        th:href="@{'/tienda/clientes/delete/' + ${cliente.id}}">Borrar</a></td>
                 </tr>
             </tbody>
         </table>
